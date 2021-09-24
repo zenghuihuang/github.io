@@ -6,10 +6,12 @@ div {
     position: relative;
     background: #f8f8f8;
     width: 90%;
-    max-width: 500px;
+    max-width: 1000px;
     padding: 2em;
     margin: 1.5em auto;
     border: 3px solid rgba(0, 0, 0, 0.08);
+
+
 }
 
 
