@@ -2,9 +2,12 @@ function Calculate() {
     alert ("Hello World!")
    }
 
+
+   
+var first="";
 function Display(a) {
 
-  var first=""
+  
   if (a!=='+' || a!=='-' || a!=='/' || a!=='*' ||a!=='=' ||a!=='.'){
     first=first+a;
 
