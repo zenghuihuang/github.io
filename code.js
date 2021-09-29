@@ -9,8 +9,9 @@ function Display(a) {
 
   
   if (a!=='+' || a!=='-' || a!=='/' || a!=='*' ||a!=='=' ||a!=='.'){
-    first=first+a;
-
+    alert(typeof a)
+    first.concat(a.toString());
+    
     document.getElementById("result").value=first;
     
   }
