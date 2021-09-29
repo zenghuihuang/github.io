@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <script type="text/javascript" src="code.js"></script>
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-brunel-university.css">
+    <title>Calculator in Javascript</title>
+ </head>
+ <body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About me</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Calculator</a>
+                </li>
+              </ul>
+            
+         
+          </nav> 
+        </div>
+        
+        <div class="wrapper">
+            <div class="container">
+              <h1>Calculator</h1>
+        
+              <div class="first-row">
+                <input type="text" id="result" class="result" placeholder="0" />
+                <input type="button" value="C" onclick="clearScreen()" id="clear" />
+              </div>
+              <div class="second-row">
+                <input type="button" value="1" onclick="Display(1)" id="one" />
+                <input type="button" value="2" onclick="Display(2)" id="two" />
+                <input type="button" value="3" id="three" onclick="Display(3)" />
+                <input type="button" value="+" onclick="Display('+')" />
+              </div>
+              <div class="third-row">
+                <input type="button" value="4" id="four" onclick="Display(4)" />
+                <input type="button" value="5" id="five" onclick="Display(5)" />
+                <input type="button" value="6" id="six" onclick="Display(6)" />
+                <input type="button" value="-" onclick="Display('-')" />
+              </div>
+              <div class="fourth-row">
+                <input type="button" value="7" id="seven" onclick="Display(7)" />
+                <input type="button" value="8" id="eight" onclick="Display(8)" />
+                <input type="button" value="9" id="nine" onclick="Display(9)" />
+                <input type="button" value="x" onclick="Display('*')" />
+              </div>
+              <div class="fifth-row">
+                <input type="button" value="/" onclick="Display('/')" />
+        
+                <input type="button" value="0" id="zero" onclick="Display(0)" />
+                <input type="button" value="." class="dot" onclick="Display('.')" />
+                <input type="button" value="=" onclick="result.value = eval(result.value)" />
+              </div>
+ </body>
+ </html>
