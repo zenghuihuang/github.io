@@ -64,7 +64,6 @@ function Display(a) {
   
   }
   if(ans !== "" && a=="="){
-    NotOperation==true;
     calculatexpression1(); 
   
   }
@@ -76,7 +75,7 @@ function Display(a) {
 function clearResult(){
   ans="";
   expr="";
-  operation=false;
+  operation=true;
   document.getElementById("result").value="";
 
      
