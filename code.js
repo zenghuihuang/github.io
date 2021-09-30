@@ -7,18 +7,30 @@ function buildexpression(a){
   document.getElementById("result").value=expr;
 
 }
+function buildexpression1(a){
+  ans+=a;
+  document.getElementById("result").value=ans;
+
+}
 function calculatexpression(){
   document.getElementById("result").value=eval(expr);
   ans=eval(expr);
   expr="";
 
 }
+function calculatexpression1(){
+  ans=eval(ans);
+  document.getElementById("result").value=ans;
+
+}
+
+
 
 
 function Display(a) {
 
   if(ans == "" && (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
-  || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9") ){
+  || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9" || a==".") ){
  
     buildexpression(a); 
   
@@ -28,7 +40,7 @@ function Display(a) {
     buildexpression(a); 
   
   }
-  if(ans !== "" && a=="="  ){
+  if(ans == "" && a=="="  ){
  
     calculatexpression();
   
@@ -36,19 +48,18 @@ function Display(a) {
   if(ans !== "" &&  (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
   || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9")  ){
  
-    expr="";
-    buildexpression(a);
-    ans="";
+    buildexpression1(a);
+    
   
   }
   if(ans !== "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
-    expr+=ans;
-    buildexpression(a); 
+    
+    buildexpression1(a); 
   
   }
   if(ans !== "" && a=="="){
-    expr+=ans;
-    calculatexpression(); 
+
+    calculatexpression1(); 
   
   }
 
@@ -61,10 +72,9 @@ function Display(a) {
 
 
 function clearResult(){
-
+  ans="";
+  expr="";
   document.getElementById("result").value="";
-  first="";
-  second="";
-  operator="";
+
      
    }
