@@ -51,7 +51,7 @@ function Display(a) {
 
     if(NotOperation==false){
       ans="";
-      NotOperation==true;
+      NotOperation=true;
     }
 
     buildexpression1(a);
