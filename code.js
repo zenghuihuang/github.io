@@ -52,6 +52,7 @@ function Display(a) {
 
    if(pressed==false){
      ans="";
+     pressed=true;
   }
 
     buildexpression1(a);
