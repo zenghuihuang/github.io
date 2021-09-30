@@ -1,21 +1,56 @@
 
-
-let second="";
 let ans="";
+let expr="";
+
+function buildexpression(a){
+  expr+=a;
+  document.getElementById("result").value=expr;
+
+}
+function calculatexpression(){
+  document.getElementById("result").value=eval(expr);
+  ans=eval(expr);
+  expr="";
+
+}
+
+
 function Display(a) {
 
-    
-  second+=a;
-  document.getElementById("result").value=second;
-    
-   if(a !== '=' ){
+  if(ans == "" && (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
+  || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9") ){
  
-    document.getElementById("result").value=eval(second);
-      
+    buildexpression(a); 
   
   }
-    
-    
+  if(ans == "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
+ 
+    buildexpression(a); 
+  
+  }
+  if(ans !== "" && a=="="  ){
+ 
+    calculatexpression();
+  
+  }
+  if(ans !== "" &&  (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
+  || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9")  ){
+ 
+    expr="";
+    buildexpression(a);
+    ans="";
+  
+  }
+  if(ans !== "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
+    expr+=ans;
+    buildexpression(a); 
+  
+  }
+  if(ans !== "" && a=="="){
+    expr+=ans;
+    calculatexpression(); 
+  
+  }
 
  
 }
