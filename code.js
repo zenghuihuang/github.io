@@ -50,7 +50,7 @@ function Display(a) {
   || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9")  ){
 
     if(NotOperation==true){
-      clearResult();
+      ans="";
     }
 
     buildexpression1(a);
@@ -75,7 +75,7 @@ function Display(a) {
 function clearResult(){
   ans="";
   expr="";
-  NotOperation=true;
+  NotOperation==true;
   document.getElementById("result").value="";
 
      
