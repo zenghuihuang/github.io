@@ -1,6 +1,7 @@
 
 let ans="";
 let expr="";
+let pressed=false;
 
 function buildexpression(a){
   expr+=a;
@@ -21,6 +22,7 @@ function calculatexpression(){
 function calculatexpression1(){
   ans=eval(ans);
   document.getElementById("result").value=ans;
+  pressed=false;
 
 }
 
@@ -48,13 +50,18 @@ function Display(a) {
   if(ans !== "" &&  (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
   || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9" || a==".") ){
 
-   
+   if(pressed==false){
+     ans="";
+  }
 
     buildexpression1(a);
+  
     
   
   }
   if(ans !== "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
+
+    pressed=true;
     
     buildexpression1(a); 
   
@@ -71,7 +78,8 @@ function Display(a) {
 function clearResult(){
   ans="";
   expr="";
+  pressed=false;
   document.getElementById("result").value="";
 
      
-   }
+}
