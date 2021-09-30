@@ -49,8 +49,9 @@ function Display(a) {
   if(ans !== "" &&  (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
   || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9")  ){
 
-    if(NotOperation==true){
+    if(NotOperation==false){
       ans="";
+      NotOperation==true;
     }
 
     buildexpression1(a);
@@ -58,7 +59,7 @@ function Display(a) {
   
   }
   if(ans !== "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
-    NotOperation==false;
+    NotOperation=false;
     
     buildexpression1(a); 
   
