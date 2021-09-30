@@ -75,7 +75,7 @@ function Display(a) {
 function clearResult(){
   ans="";
   expr="";
-  operation=true;
+  NotOperation=true;
   document.getElementById("result").value="";
 
      
