@@ -1,28 +1,28 @@
+var ans = "";
+var expr = "";
 
-let ans="";
-let expr="";
-let pressed=false;
-
-function buildexpression(a){
-  expr+=a;
-  document.getElementById("result").value=expr;
+function buildexpression(a) {
+    expr += a;
+    document.getElementById("result").value = expr;
 
 }
-function buildexpression1(a){
-  ans+=a;
-  document.getElementById("result").value=ans;
+
+function buildexpression1(a) {
+    ans += a;
+    document.getElementById("result").value = ans;
 
 }
-function calculatexpression(){
-  document.getElementById("result").value=eval(expr);
-  ans=eval(expr);
-  expr="";
+
+function calculatexpression() {
+    document.getElementById("result").value = eval(expr);
+    ans = eval(expr);
+    expr = "";
 
 }
-function calculatexpression1(){
-  ans=eval(ans);
-  document.getElementById("result").value=ans;
-  pressed=false;
+
+function calculatexpression1() {
+    ans = eval(ans);
+    document.getElementById("result").value = ans;
 
 }
 
@@ -30,57 +30,64 @@ function calculatexpression1(){
 
 
 function Display(a) {
+    switch (a) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case ".":
+            if (ans == "") {
+                buildexpression(a);
+                break;
+            } else {
+                buildexpression1(a);
+                break;
 
-  if(ans == "" && (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
-  || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9" || a==".") ){
- 
-    buildexpression(a); 
-  
-  }
-  if(ans == "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
- 
-    buildexpression(a); 
-  
-  }
-  if(ans == "" && a=="="  ){
- 
-    calculatexpression();
-  
-  }
-  if(ans !== "" &&  (a=="0" || a=="1"|| a=="2"|| a=="3"|| a=="4"
-  || a=="5"|| a=="6"|| a=="7"|| a=="8"|| a=="9" || a==".") ){
+            }
 
-   if(pressed==false){
-     ans="";
-     pressed=true;
-  }
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            if (ans == "") {
 
-    buildexpression1(a);
-  
-    
-  
-  }
-  if(ans !== "" && (a=="+" || a=="-"|| a=="*"|| a=="/") ){
+                buildexpression(a);
+                break;
+            } else {
+                
+                buildexpression1(a);
+                break;
 
-    pressed=true;
-    
-    buildexpression1(a); 
-  
-  }
-  if(ans !== "" && a=="="){
-    calculatexpression1(); 
-  
-  }
+            }
 
- 
+
+        case "=":
+            if (ans == "") {
+                calculatexpression();
+                break;
+            } else {
+                calculatexpression1();
+                break;
+
+            }
+
+
+    }
+
 }
 
 
-function clearResult(){
-  ans="";
-  expr="";
-  pressed=false;
-  document.getElementById("result").value="";
 
-     
+function clearResult() {
+    ans = "";
+    expr = "";
+    document.getElementById("result").value = "";
+
+
 }
