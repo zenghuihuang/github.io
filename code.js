@@ -1,33 +1,43 @@
 var ans = "";
 var expr = "";
+var pressed = false;
 
 function buildexpression(a) {
     expr += a;
     document.getElementById("result").value = expr;
-
 }
 
 function buildexpression1(a) {
+    if (pressed == false) {
+        ans = "";
+    }
     ans += a;
     document.getElementById("result").value = ans;
 
 }
 
 function calculatexpression() {
-    document.getElementById("result").value = eval(expr);
-    ans = eval(expr);
-    expr = "";
-
+    expr = eval(expr);
+    document.getElementById("result").value = expr;
+    ans = expr;
+    pressed = false;
 }
 
 function calculatexpression1() {
     ans = eval(ans);
     document.getElementById("result").value = ans;
-
+    pressed = false;
 }
 
+function calculateSqrt() {
+    ans = Math.sqrt(expr);
+    document.getElementById("result").value = ans
+}
 
-
+function calculateCbrt() {
+    ans = Math.cbrt(expr)
+    document.getElementById("result").value = ans
+}
 
 function Display(a) {
     switch (a) {
@@ -42,31 +52,27 @@ function Display(a) {
         case 8:
         case 9:
         case ".":
+
             if (ans == "") {
                 buildexpression(a);
                 break;
             } else {
                 buildexpression1(a);
                 break;
-
             }
-
         case "+":
         case "-":
         case "*":
         case "/":
             if (ans == "") {
-
                 buildexpression(a);
-                break;
+
             } else {
-                
+                pressed = true;
                 buildexpression1(a);
-                break;
 
             }
-
-
+            break;
         case "=":
             if (ans == "") {
                 calculatexpression();
@@ -74,20 +80,20 @@ function Display(a) {
             } else {
                 calculatexpression1();
                 break;
-
             }
-
-
+        case 'sqrt':
+            calculateSqrt();
+            break;
+        case 'cbrt':
+            calculateCbrt();
+            break
     }
 
 }
 
-
-
 function clearResult() {
     ans = "";
     expr = "";
+    pressed = false;
     document.getElementById("result").value = "";
-
-
 }
