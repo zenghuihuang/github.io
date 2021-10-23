@@ -10,6 +10,8 @@ function buildexpression(a) {
 function buildexpression1(a) {
     if (pressed == false) {
         ans = "";
+        pressed = true;
+
     }
     ans += a;
     document.getElementById("result").value = ans;
@@ -20,24 +22,24 @@ function calculatexpression() {
     expr = eval(expr);
     document.getElementById("result").value = expr;
     ans = expr;
-    pressed = false;
 }
 
 function calculatexpression1() {
     ans = eval(ans);
     document.getElementById("result").value = ans;
-    pressed = false;
 }
 
 function calculateSqrt() {
     ans = Math.sqrt(expr);
-    document.getElementById("result").value = ans
+    document.getElementById("result").value = ans;
 }
 
 function calculateCbrt() {
     ans = Math.cbrt(expr)
-    document.getElementById("result").value = ans
+    document.getElementById("result").value = ans;
 }
+
+
 
 function Display(a) {
     switch (a) {
@@ -64,11 +66,13 @@ function Display(a) {
         case "-":
         case "*":
         case "/":
+        case '**':
+        case '%':
+            pressed = true;
             if (ans == "") {
                 buildexpression(a);
 
             } else {
-                pressed = true;
                 buildexpression1(a);
 
             }
@@ -76,17 +80,21 @@ function Display(a) {
         case "=":
             if (ans == "") {
                 calculatexpression();
-                break;
+
             } else {
                 calculatexpression1();
-                break;
+
             }
+            pressed = false;
+            break;
         case 'sqrt':
             calculateSqrt();
             break;
         case 'cbrt':
             calculateCbrt();
             break
+
+
     }
 
 }
