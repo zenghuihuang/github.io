@@ -3,55 +3,100 @@
 
 <head>
     <link rel="stylesheet" href="style.css" id="theme" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&compute=swap" rel="stylesheet" />
     <script type="text/javascript" src="code.js"></script>
     <title>Calculator in Javascript</title>
 </head>
 
 <body>
-
     <div class="wrapper">
         <h1>Calculator</h1>
         <div class="container">
+                <div id="item">
+                        <div class="first-row">
+                            <input type="text" id="result" placeholder="" />
+                            <input type="button" value="C" onclick="clearAnswer()" />
+                        </div>
+                        <div class="second-row">
+                            <input type="button" id="1" value="1" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="2" value="2" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="3" value="3" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="+" value="+" onclick="compute('+')" />
+                            <input type="button" id="mod" value="mod" onclick="compute('%')" />
+                        </div>
+                        <div class="third-row">
+                            <input type="button" id="4" value="4" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="5" value="5" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="6" value="6" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="-" value="-" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="powerTo" value="powerTo" onclick="compute('**')" />
+                        </div>
+                        <div class="fourth-row">
+                            <input type="button" id="7" value="7" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="8" value="8" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="9" value="9" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="*" value="*" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="cbrt" value="cbrt" onclick="calculateCbrt()" />
+                        </div>
+                        <div class="fifth-row">
+                            <input type="button" id="/" value="/" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="0" value="0" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="." value="." class="dot" onclick="compute(event.srcElement.id)" />
+                            <input type="button" id="=" value="=" onclick="compute('=')" />
+                            <input type="button" id="sqrt" value="sqrt" onclick="calculateSqrt()" />
 
+                        </div>
+                    </div>
+                    <div id="item-center">
+                        <div class="dropdown">
+                            <button class="dropbtn" type="button">conv.</button>
+                            <div class="dropdown-content">
+                                <p>Temperature</p>
+                                <button name="celsiusb" class="conv" type="button" onclick="compute(event.srcElement.name)">℃</button>
+                                <button name="fahrenheitb" class="conv" type="button" onclick="compute(event.srcElement.name)">℉</button>
+                                <p>Weight</p>
+                                <button name="gramsb" class="conv" type="button" onclick="compute(event.srcElement.name)">gToOz</button>
+                                <button name="ozb" class="conv" type="button" onclick="compute(event.srcElement.name)">ozToG</button>
+                                <p>Lenght</p>
+                                <button name="cmb" class="conv" type="button" onclick="compute(event.srcElement.name)">cmToInch</button>
+                                <button name="inchesb" class="conv" type="button"
+                                    onclick="compute(event.srcElement.name)">inchToCm</button>
+                                <p>Numeric</p>
+                                <button name="dec-to-hex" class="conv" type="button" onclick="compute(event.srcElement.name)">DEC to
+                                    HEX</button>
+                                <button name="hex-to-dec" class="conv" type="button" onclick="compute(event.srcElement.name)">HEX to
+                                    DEC</button>
+                                <button name="bin-to-dec" class="conv" type="button" onclick="binToDec()">BIN to DEC</button>
+                                <button name="dec-to-bin" class="conv" type="button" onclick="compute(event.srcElement.name)">DEC to
+                                    BIN</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div id="item-left">
 
-            <div class="first-row">
-                <input type="text" id="result" placeholder="" width:20%/>
-                <input type="button" value="C" onclick="clearAnswer()" width:20%/>
-            </div>
-            <div class="second-row">
-                <input type="button" value="1" onclick="Display(1)" />
-                <input type="button" value="2" onclick="Display(2)" />
-                <input type="button" value="3" onclick="Display(3)" />
-                <input type="button" value="+" onclick="Display('+')" />
-                <input type="button" value="mod" onclick="Display('%')" />
-            </div>
-            <div class="third-row">
-                <input type="button" value="4" onclick="Display(4)" />
-                <input type="button" value="5" onclick="Display(5)" />
-                <input type="button" value="6" onclick="Display(6)" />
-                <input type="button" value="-" onclick="Display('-')" />
-                <input type="button" value="power" onclick="Display('**')" />
-            </div>
-            <div class="fourth-row">
-                <input type="button" value="7" onclick="Display(7)" />
-                <input type="button" value="8" onclick="Display(8)" />
-                <input type="button" value="9" onclick="Display(9)" />
-                <input type="button" value="x" onclick="Display('*')" />
-                <input type="button" value="cbrt" onclick="calculateCbrt()" />
-            </div>
-            <div class="fifth-row">
-                <input type="button" value="/" onclick="Display('/')" />
-                <input type="button" value="0" onclick="Display(0)" />
-                <input type="button" value="." class="dot" onclick="Display('.')" />
-                <input type="button" value="=" onclick="Display('=')" />
-                <input type="button" value="sqrt" onclick="calculateSqrt()" />
-            </div>
+                        <div id="the-results" >
+                            <ul id="results_list">
+                                <li id="result_default">Memory is Empty</li>
+                            </ul>
+                        </div>
+                    </div>
+
         </div>
     </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 </html>
