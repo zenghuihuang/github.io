@@ -8,9 +8,13 @@ Input: first is a double, second is a double, operator is a string and can be "*
 
 LET result
     IF (operator == "**") THEN
+    
         result = first ** second
+        
     IF (operator == "%") THEN
-        result = first % second   
+    
+        result = first % second  
+        
 Output: The result
 
 ## This performs  square/cube roots operations 
@@ -22,9 +26,13 @@ Input: input is a double, operator is a string and can be "sqrt" or "cbrt".
 
 LET result   
     IF (operator == "sqrt") THEN
+    
         result = calculate the square root of the input
+        
     IF (operator == "cbrt") THEN
-        result = caluculate the cube root of the input   
+    
+        result = caluculate the cube root of the input 
+        
 Output: The result
 
 
