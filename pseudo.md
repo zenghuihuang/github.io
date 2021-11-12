@@ -4,6 +4,8 @@
 Algorithm 1. Compute(first, second, operator)
 
 Input: first is a double, second is a double, operator is a string and can be "**" or "%".
+
+
 LET result
     IF (operator == "**") THEN
         result = first ** second
@@ -16,6 +18,8 @@ Output: The result
 Algorithm 2. Compute(input, operator)
 
 Input: input is a double, operator is a string and can be "sqrt" or "cbrt".
+
+
 LET result   
     IF (operator == "sqrt") THEN
         result = calculate the square root of the input
